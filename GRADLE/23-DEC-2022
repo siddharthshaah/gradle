@@ -1,0 +1,110 @@
+Gradle is an opensource build automation tool, it is used for building applications developed in jvm based languages like java, groovy, scala and andriod platforms
+
+In Gradle we express the build script of build definition in Groovy or Kotlin language in which we declare project information, tasks and plugins
+
+How does Gradle works?
+ANT has provided pre-defined tasks through which we can perform build activities. The developer has to write the build script file with task declarations that he wanted to apply on the project inorder to build the project, looks like the developer has to endup in redundantly write code/script across all the projects to build them, which is an complex job
+advantage:-
+	1. finest level of control, developer has the flexibility on what tasks to be applied and how he wanted to build the project
+dis-advantage:-
+	1. complexity in understanding the build process across the project
+	2. redundancy in writing the build script for every project
+	
+To overcome these problems MAVEN has been introduced
+MAVEN works based on convention over configuration, it has enforced several standards in creating the project, so that MAVEN can build the project
+1. Standardized directory structure = every java project must and should be created based on the same directory structure
+2. Plugins = Plugins are the basic building blocks in performing the build activities. Plugins can be thought of Tasks in Ant.
+For eg.. CompilerPlugin, PackagePlugin, WarPlugin, JarPlugin
+3. Standardized build lifecycle = For each type of project, the tasks to be applied are same always. This has been identified by the maven and has defined as pre-defined phases associated with fixed plugins/goals for each type of project, that will be applied by maven inorder to build the project
+
+The developer dont need to write the build script inorder to build the project, all he has to do is declare the information about the project along with type of the project (jar/war or ear)
+	
+advantage:-
+	1. build abstraction = no complexity in understanding how to build a project
+	2. agnostic to ide = due to standardized directory structure supported by every ide vendor, we can choose ide of our choice to work with
+	3. no redundancy 
+dis-advantage:-
+	1. maven assumes the project is of java type (packaging: jar) and applies the standardized build lifecycle in building the project based on standard conventions
+	2. no flexibility in choosing the directory structure, due to which the legacy projects are not best suitable to be build using MAVEN
+	3. we cannot customize the build activities due to predefined lifecycle phases
+	4. For a simple task to be achieved we need to develop our own plugin which is quite complex
+	
+From the above we can understand ANT is too flexible enough to be used, but quite expensive interms of complexity and usage, where as MAVEN is too standardized to be used, where there is lack of flexibility in working with MAVEN
+
+To overcome both of the dis-advantages GRADLE has been introduced
+GRADLE by default doesnt make any assumptions about the project, so it has not provided an standardized build lifecycle or project structures due to which we can build anytype of project using Gradle. Tasks are the building blocks in GRADLE to perform build activities
+There are lot of build-in tasks provided by the GRADLE, that can be used for building the project
+javac task
+java task
+copy task
+developer can write his own Tasks or can create new Tasks by extending from existing Tasks
+
+Looks from the above, itseems we need to write build script declaring the tasks we wanted to apply in building the project which is paving the way of ANT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,127 @@
+Gradle doesnt assumes a project is of any specific type, so we dont need to create a directory layout in defining a project, we can just create an directory in which write the build.gradle by defining tasks in it.
+	
+projectdirectory
+|-build.gradle
+
+task "taskName" {
+	doLast {
+		println "gradle project"
+	}
+}
+
+goto the project directory in the command-line and run gradle taskName to run the project
+
+In the above build.gradle we wrote groovy scripting, it is similar to java code but it has few differences interms of syntaxes
+1. no need to write the program statement terminated by ";" (semicolon)
+2. no imports are required, unless we have conflicting classnames
+3. we can call functions without parenthesis if it has only one argument
+4. No primitive data types, for all the primitive datatypes the groovy has defined wrapper classes
+5. operators are overloaded to perform arthematic, logical and relational operations on wrapper classes
+
+
+Every task in gradle has 2 action blocks
+1. doFirst
+2. doLast
+we can write the code inside the task either in doFirst{} clouser or doLast{} clouser. A clouser is nothing but a block of code wrapped in an anonymous object. This block of code can be asigned to an variable or we can parameterize to a function.	clouser is equal to an lamdba expression.
+The Name itself tells you doFirst will perform execution first, at the end of the execution of the task, the doLast will be executed.
+	
+shortened form of writing the doFirst and doLast is
+task taskName {
+	<< {
+	
+	}
+	>> {
+	
+	}
+}
+
+we can run gradle tasks to display all the available tasks of a project which we can run, by default our own custom tasks will not be shown because gradle treats all the ungrouped tasks as private and will not display
+
+By default all the tasks are public if those are not belonging to an null group. so to display our tasks in gradle tasks we need to add our task to a group
+
+task "basicTask" {
+	doFirst {}
+	doLast {}
+}
+
+basicTask.group="Basic Group"
+------------------------------------------------------------------------------------------------------------------------
+From gradle 7 onwards the task definition has been changed
+Representing an Gradle project, the gradle creates an Project object in which it keeps all the tasks as collection. We can define and register a task into task collection using a method called "register"
+	
+There are multiple ways we can define tasks in gradle 7
+#1. register a task and define it
+tasks.register("taskName") {
+	doFirst {}
+	doLast {}
+}
+
+for eg..
+tasks.register("build") {
+	doFirst {}
+	doLast {}
+}
+
+#2. register task and define the body of the task latter using the name of the task
+tasks.register("taskName") // we just registered the task to the collection
+
+tasks.named("taskName") { // we are defining the task body by using taskName
+	doFirst {}
+	doLast {}
+}
+
+#3. A task can be registed and configured later, so while executing a task Gradle reads the task definition, applies the configuration and executes it
+
+def copyTask = tasks.register("copy") {
+	ext.source=""
+	doFirst {
+		println "copying ${source} into the destination directory"
+	}
+}
+copyTask.configure {
+	source="/u01/middleware"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

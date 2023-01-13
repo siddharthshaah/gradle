@@ -1,0 +1,158 @@
+There are few configuration files we need know in gradle project
+1. build.gradle
+build.gradle is the build script file in gradle project in which we declare plugins, tasks to be applied in building the application
+
+2. settings.gradle
+settings.gradle holds the configuration required to instantiate and configure hierarchy of project instances which are to participate in build process. For each project we need to have one settings.gradle where gradle during the build reads the settings.gradle and creates an Settings Instance and executes the settings file against it
+
+In the settings file we need to declare the information about the rootProject included in build and all the subProjects to be included aspart of the build.
+	
+The rootProject name defaults to the name of the directory containing the settings file. 
+
+3. gradle.properties
+In addition to the settings we can write some more gradle system settings in gradle.properties which will be read by the gradle during the build and perform the build process.
+These properties we configure in gradle.properties the gradle system properties to tune the behaviour of the build process
+Few of the properties are
+buildCache
+rootDir
+settingDir
+apply(closure)
+apply(options)
+apply(action)
+The gradle.properties is optional for a project
+
+
+How to build java project using Gradle?
+#1. Standardized directory structure 
+basicjava
+|-src
+  |-main
+		|-java
+		|-resources
+|-test
+	|-main
+		|-java
+		|-resources
+|-build.gradle
+|-settings.gradle
+|-build (generated)
+	|-libs
+	|-bins
+	
+Since we are not working on multi-module project we dont need to create any child projects inside the parent, but we need to declare root project name in the settings.gradle which is equal to the root directory name of the project
+
+settings.gradle
+rootProject.name="basicjava"
+	
+	
+#2. build.gradle
+The basic building block in building an project in gradle is Tasks, to build an java project we need to write bunch of tasks which becomes a repeatitive process, instead gradle has provided plugins
+There are 3 plugins provided by gradle to build an java project depends on their nature
+1. java-library plugin
+2. java-application
+3. war
+
+when we apply the plugin automatically the conventions are imported into the project and tasks are added to the project helpings us in building project, so we dont need to write build script in bulding the project
+
+build.gradle
+plugins {
+	id 'java-library'
+}
+
+#3. 
+when we applied any of the java plugins, it will add the compiler task to our project. The compiler task uses the system jdk version to compile the project. In case if we want to change the compiler source/target version we need to write the configuration as below
+
+build.gradle
+#1 
+java {
+	sourceCompatibility=JavaVersion.VERSION_11
+	targetCompatibility=JavaVersion.VERSION_11
+}
+
+or
+
+#2
+java {
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(11))
+	}
+}
+
+write now we dont have any dependencies being used in our project, so we dont need to declare repositories to be used and dependencies to added to the classpath of our project
+
+
+goto the project directory and run 
+gradle tasks
+
+Now we should see a new task group has been added "build" showing bunch of tasks to be used for building our java project
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,287 @@
+task "taskName" {
+	doFirst {}
+	doLast{}
+}
+
+task.register("taskName") {
+	doFirst {}
+	doLast {}
+}
+
+task.register("taskName")
+task.named("taskName") {
+	doFirst {}
+	doLast {}
+}
+
+def task = tasks.register("taskName") {
+	ext.var=""
+	doFirst {}
+	doLast {}
+}
+task.configure {
+	variable = value
+}
+------------------------------------------------------------------------------------------------------------------------
+How to declare variables in Task?
+We can declare variables in Gradle at 2 levels
+1. project level = global variables which can be reused across the project
+2. task level = extra properties defined and is accessible only within the scope of the task
+
+build.gradle
+// project level variables
+def javaVersion=11
+def author="Sriman"
+	
+tasks.register("vars") {
+	ext {
+		releaseNotes = "Extra property declared in task level"
+	}
+	doFirst {
+		println "java version: ${javaVersion}"
+		println "author: ${author}"
+		println "releaseNotes: ${releaseNotes}"
+	}
+}	
+-----------------------------------------------------------------------------------------------------------------------
+Working with Task dependencies
+The basic building block in Gradle is Task. We declare bunch of tasks to be applied in building the project, one cannot memorize which tasks has to be executed, in which order inorder to build the project, so while declaring the tasks to be applied in building the project we can declare dependencies between the tasks with which we are defining the ordered execution of the tasks
+
+There are 2 ways we can declare dependencies between the tasks
+1. while declaring the task itself we can defin the dependency
+2. define the task and configure dependencies later
+
+
+#1. while declaring the tasks itself we can define the dependency
+tasks.register("clean") {
+	doLast {
+		println "cleaning the project"
+	}
+}
+
+tasks.register("compile") {
+	dependsOn 'clean'
+	doLast {
+		println "compiling the source"
+	}
+}
+
+Now we can launch the building using gradle compile
+
+
+#2. define the task and configure dependency later
+
+tasks.register("clean") {
+	doFirst {
+		println "cleaning"
+	}
+}
+
+def compileTask = tasks.register("compile") {
+	doFirst {
+		println "compiling"
+	}
+}
+
+compileTask.configure {
+	dependsOn 'clean'
+}
+
+How to declare a default task in gradle build?
+while launching the gradle build, the developer has to always specify the taskName to be executed, which is hard to memorize most of the time, instead we can delcare defaultTask which will be by default executed when the user lanches the gralde build without specifiying the taskName. we can override always the defaultTask by explicitly passing the taskName.
+	
+build.gradle
+
+defaultTasks 'task1'
+task "task1" {
+
+}
+task "task2" {
+
+}
+
+How to enable or disable a Task?
+def task = tasks.register("taskName") {
+	doFirst {}
+}	
+task.configure {
+	enabled = false
+}
+
+ConditionalTasks
+we can bind conditions based on which a task can be executed
+
+def compileTask = tasks.register("compile") {
+	doLast {
+		println "compiling"
+	}
+}
+
+compileTask.configure {
+	onlyIf {
+		project.hasProperty("javaVersion") && project.javaVersion == "11"
+	}
+}
+
+gradle -PjavaVersion=9 compile
+we are passing the property while running the gradle Build
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

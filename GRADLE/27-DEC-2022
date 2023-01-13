@@ -1,0 +1,150 @@
+Features:
+1. High Performance
+1.1 Gradle builds are incremental, which means it checks the timestamp of the sourcefiles from the previous build and if there is a change in the timestamp then it recompiles otherwise ignores which will improves significantly the build time of the project
+1.2 The dependencies we configured in gradle buildfile are downloaded in parallel from the repository which greatly improves the performance and reduces the build execution time
+1.3 We can enable build cach, which will reuses the output of task in subsequent runs, given if the output of the task execution is not going to change.
+	
+2. JVM Foundation
+Gradle runs on JVM, so we should have jvm being installed to use Gradle. as it runs on JVM we get a platform portability
+
+3. Conventions
+In Maven, it eliminated the build script by imposing conventions and standardized build lifecycle. The Gradle also takes the concept of conventions from maven, so that most of java projects can be build with default conventions. Gradle has provided plugins for each type of project, these plugins are defined with tasks and conventions. Upon applying the plugin to a project all the tasks and conventions of the plugin are imported into the project using which we can build the project. This eliminates the need of writing the buildscript file in build the project
+
+4. Extensibility
+We can create our own tasks and can create our own plugins to enhance the builds
+
+5. Debugging
+Build Scan provides extensive information about the build run, so that we can easily determine the build failures
+------------------------------------------------------------------------------------------------------------------------
+How to build an GRADLE project?
+Gradle builds works on top of 2 concepts
+1. project
+2. task
+
+A project can represent anything, for example a project can be a java library or a web application or could be a zip produced by compressing multiple files and distributed. In gradle project is defined based on what things are being done, rather than what is being built
+
+Each project madeup of tasks, A task represents an atomic piece of work that will be performed aspart of the build
+
+How to install the Gradle?
+1. download the binary distribution of GRADLE
+https://gradle.org/next-steps/?version=7.6&format=bin
+2. copy the zip file into c:\drive and extract it
+3. add the gradle bin directory to the system PATH variable
+
+Building our first project in Gradle:
+Gradle doesnt make any assumptions of a project type, so while creating a project we dont need to create any standard project directory structure like MAVEN. we can just create a empty directory in which we can write a buildscript file declaring one/more tasks.
+By default gradle looks for a file under the project directory with name build.gradle
+
+projectdirectory
+|-build.gradle
+
+In this buildscript file we define project information and tasks. The buildscript can be written in groovy or kotlin language
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

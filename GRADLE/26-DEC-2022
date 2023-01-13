@@ -1,0 +1,150 @@
+Gradle by default doesnt make any assumptions about the project, so it can build any type of project unlike maven. Tasks are the basic building blocks in GRADLE that performs the build activities. But programmer dont ned to write the build script in applying or declaring the tasks for building the project. Instead GRADLE has project plugins.
+	
+For each type of project, GRADLE has provided pre-defined plugins which comprises of bunch tasks to be applied to build a project type and conventions being enforced for that project type. So we need to apply the plugin for the project, so that automatically the tasks/conventions will be added to the project for building
+------------------------------------------------------------------------------------------------------------------------
+How does GRADLE tasks executes?
+The core model of GRADLE is on Tasks. Programmer has to write/configure tasks aspart of the gradle build file by declaring dependencies between the tasks
+
+Task in GRADLE containers:
+1. Action = operation or piece of work/code to do
+2. Inputs = values, files and directories on which it should perform the operation
+3. Outputs = files, directories that the action has modified or generated
+
+upon declaring the tasks in GRADLE build file, the GRADLE reads the task configurations we declared in the build file and derives the dependencies between the tasks and draws an Directed Acyclic Grap (DAG) to understand task execution order and performs the build process
+------------------------------------------------------------------------------------------------------------------------
+GRADLE build lifecycle
+
+MAVEN Lifecycle = phases associated with plugin goals to be applied in building the project (tasks to be applied)
+GRADLE Plugin = tasks to be applied and conventions being enforces in building the project
+
+Lifecycle refers to how does the build is carried on a project
+In MAVEN there are predefined and fixed lifecycles are there
+1. CLEAN
+2. default
+3. SITE
+defined with phases associated with plugin goals. For each project always the same phases with plugin goals are applied or executed to build a project
+
+where as in GRADLE the term lifecycle refers to the Phases in which the tasks are identified and executed. A GRADLE build script comprises of tasks configurations and plugin declarations so building the project refers to
+1. identified the tasks & plugins
+2. deriving their order
+3. executing
+
+The GRADLE evaluates and executes a build script in 3 phases
+1. Initialization = Reads the build script and determins the environment and identifies the project to be build
+2. Configuration = Constructs and configures the task graph for the build and determines which task has to be executed in which order
+3. Execute = Runs the tasks selected at the end of the configuration phase
+------------------------------------------------------------------------------------------------------------------------
+Features of Gradle
+1. High performance
+1.1 Incremental Builds 
+GRADLE builds are incremental, which means when we apply a plugin like java-library. Gradle executes all the tasks derived from that plugin. if we rerun the gradle build again, gradle compares the timestamp of the source files to determine which has been changed and only compiles the sourcecode that has impact leaving the other files same. thus saves lot of time in performing build process
+1.2 The dependencies we declared in gradle build file are downloaded in parallel from the repositories which greatly improves the performance of the build and reduces the build execution time
+1.3 We can enable gradle build cache, which will reuses the task output in the subsequent runs, if the output of the task execution is not going to change
+
+2. JVM Foundation
+Gradle runs on JVM so we should have JDK installed to use Gradle. because JVM platform we get platform portability.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

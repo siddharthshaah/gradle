@@ -1,0 +1,76 @@
+How to build an java application project in Gradle?
+In a java application project, we have an main-class through which we can launch the application, so gradle adds the relevant tasks in packaging the application as an executable jar so that we can launch the jar application directly. whereas when it comes to library project, the application is bundled as distributable jar and can be reused as a dependency in another project
+
+to work with java application, gradle has provided 'application' plugin. So instead of applying the java-library plugin we need to apply application plugin along with configuring the mainClass of the project
+
+projecdir
+|-src
+	|-main
+		|-java
+		|-resources
+|-build.gradle
+|-settings.gradle
+
+build.gradle
+------------
+plugins {
+	id 'application'
+}
+java {
+	sourceCompatibility=JavaVersion.VERSION_11
+	targetCompatibility=JavaVersion.VERSION_11
+}
+application.configure {
+	mainClass="fqnMainClass"
+}
+
+so additional there is an task added to the gradle project because we applied 'application' plugin called "run" which reads the mainClass we configured and launches the application
+------------------------------------------------------------------------------------------------------------------------
+dependency management
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

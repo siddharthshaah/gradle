@@ -1,0 +1,5 @@
+Gradle
+Gradle is an opensource build automation tool, it can be used for building applications developed on jvm based languages like java, groovy, scala and andriod platform
+
+In Gradle we express the build script or build definition in Groovy or Kotlin language in which we declare project information, tasks and plugins to be applied in building the project
+

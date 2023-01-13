@@ -1,0 +1,171 @@
+How to build a java project using Gradle?
+A java project can be any of the below types:
+1. java library project = The project will be build to generate a library jar file
+2. java application = The project will be build, and an executable jar will be generated out of it
+3. web application = A war file will be build 
+
+For each of these projects, the gradle has provided relevant plugins that has to be applied in building the project. When we apply an corresponding plugin, they add conventions and tasks to the project helping us in building the project
+
+#1 upon applying the 'java' plugin it imports/enforces the standardized directory structure convention on the project
+project
+|-src
+  |-main
+	  |-java
+		|-resources
+|-test
+	|-main
+		|-java
+		|-resources
+|-build.gradle
+
+but if we want to customize the directory structure of our project we can achieve it very easily in gradle by defining sourceSets which we can explore later
+
+#2. build lifecycle
+when we apply plugin, plugin imports additional tasks pertaining to the project, so we dont need to write any tasks to build the project. The plugin not only adds the tasks, it even define the dependency order of execution of these tasks as well. so we can easily build the project
+
+#3. dependency management
+Gradle supports dependency management
+3.1. we can define repositories from where we want gradle to locate and download the dependencies from. Gradle supports all the 3 types of repositories
+	1.1 central repository
+	1.2 remote repository
+	1.3 local repository
+	
+3.2. we can declare dependencies of our project in gradle build script file, so that gradle takes care of downloading the dependencies from the repositories we have defined
+
+#4. Archetypes
+In gradle there is no concept of archetypes, because gradle build scripts are very minimal unlike maven pom.xml, but to facilitate in creating the project of a specific type with standardized directory structure and plugins gradle has provided an cli tool called gradle init
+
+#5. Tools support
+every ide supports gradle
+
+Note: In a maven project, for each project we need to define the gav coordinates for the project to identify uniquely the project, so that it can be published into the remote/local repositories for reusing in another projects. But not all the projects we build are libraries, so declaring gav co-ordinates for every projects seems unnecessary so in gradle we dont need to declare gav coordinates for every project unless we want to distribute it
+
+How to build an java project using gradle?
+#1. create a project with standardized directory structure
+project
+|-src
+  |-main
+	  |-java
+		|-resources
+|-test
+	|-main
+		|-java
+		|-resources
+|-build.gradle
+
+#2. add the relevant plugins and configurations to the build the java project
+build.gradle
+
+plugins {
+	id 'java-library'
+}
+
+declare compiler version to be used for building the project:
+There are 2 ways we can declare compiler version to be used in building the project
+
+#1
+java {
+	sourceCompatibility=JavaVersion.VERSION_11
+	targetCompatibility=JavaVersion.VERSION_11
+}	
+
+(or)
+
+#2 
+java {
+	toolChain {
+		languageVersion.set(JavaLanguageVersion.of(11))
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

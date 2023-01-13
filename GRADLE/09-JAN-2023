@@ -1,0 +1,47 @@
+How to build webapplication in gradle?
+Gradle has provided an plugin "war" we just need to follow the standardized directory structure of a webapplication project to build it.
+webproject
+|-src
+	|-main
+		|-java
+		|-resources
+		|-webapp
+			|-WEB-INF
+|-build.gradle
+|-settings.gradle
+
+build.gradle
+------------
+plugins {
+	id 'war'
+}
+repositories {}
+dependencies {}
+---------------------------------------------------------------------------------------------------------------------------------
+How to work with multi-module gradle project?
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

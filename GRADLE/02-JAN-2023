@@ -1,0 +1,53 @@
+Gradle Tasks
+Till now we are defining our own tasks by declaring variables, writing actions aspart of tasks for performing build activities. but there are lot of common activities that has to be performed inorder to build a project, if the developer has to write the tasks by his own in carrying the build activities then we endup in writing lot of code redundantly to perform building the project. That is where gradle has provided pre-defined tasks in handling the common build activities
+
+Gradle has provided several Task Types, a Task type is a subclass of DefaultTask object. So we can create our own Task extending from Gradle Task Types and configure our own operations as well.
+	
+write a build file to copy a file from source to destination:
+tasks.register("copyFile", "Copy") {
+	caseSensitive true
+	from(file('d:/notes.txt'))	
+	into 'e:/'
+}
+------------------------------------------------------------------------------------------------------------------------
+The Project Api	
+The build script represents an Project object in Gradle Api. A Project is an abstract concept, 	but we can map a Gradle project to any software component that need to build like, java library project or java application project etc
+
+Each build script we define is associated with an object type Project and as the build script executes, it configures this project. All the top level properties and blocks in buildscript are part of project API
+
+standard project properties which we can access in our buildscript are:
+project = implicit reference of the current buildscript object
+name = the name of the project directory
+path = the absolute path of the project
+Description = description of the project
+projectDir = The directory containing the build script
+buildDir = projectDir/build
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
