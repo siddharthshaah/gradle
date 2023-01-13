@@ -1,0 +1,23 @@
+plugins {
+	id 'application'
+}
+
+java {
+	sourceCompatibility=JavaVersion.VERSION_11
+	targetCompatibility=JavaVersion.VERSION_11
+}
+sourceSets {
+	main {
+		java {
+			srcDirs 'src/main/javaSrc'
+		}
+	}
+	test {
+		java {
+			srcDirs 'test/main/javaSrc'
+		}
+	}	
+}
+application {
+	mainClass="com.customdirgradle.test.App"
+}

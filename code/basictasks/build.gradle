@@ -1,0 +1,9 @@
+task "basicTask" {
+	doFirst {
+		System.out.println("doFirst block is running!");
+	}
+	doLast {
+		println "doLast block is running!"
+	}
+}
+basicTask.group="custom"

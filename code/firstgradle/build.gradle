@@ -1,0 +1,5 @@
+task "print" {
+	doLast {
+		println "Hurray! Gradle is building the project!"
+	}
+}
