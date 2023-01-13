@@ -1,0 +1,91 @@
+How does Gradle works?
+Gradle works based on tasks and plugins
+since maven supports only java-based projects to be build, it always assumes a project as java project only (packaging: jar), based on the packaging type we declared in pom.xml, it applies the standard lifecycle phases and executes all the associated goals in building the application
+
+
+But Gradle doesnt make any assumptions of a project and doesnt apply any standardized build activities by default. The basic building block in building an application in Gradle is Tasks. A Task represents an build activity that should be performed in building an application. But the programmer dont need to write code or buildscript in defining which tasks to be executed in building an project
+
+For any #2 projects of different technology the tasks that should be applied in building the project would not be same. But the projects of same nature (language) if those are build based on standard conventions, then the tasks that has to be applied in building those projects would be same, that is where GRADLE has abstracted the proccess of building each type of project by providing plugins
+
+A plugin represents 2 things
+1. standard conventions
+2. group of pre-defined tasks that are precreated to be executed in a defined order in building a specific type of project
+
+From the above we can understand GRADLE has provided built-in plugins for each type of project with standard conventions and tasks be defined aspart of them. but in addition to this if we want to perform any custom build activity during the time of building an project we cannot do it easily in maven, because we need to write our own plugin with goals and associate them with lifecycle phases which seems to be a complex job
+
+unlike MAVEN in GRADLE we can write our own task using groovy or kotlin language and customize the build process by adding additional tasks in building the project
+
+GRADLE = ANT + MAVEN
+        tasks  conventions
+							 lifecycle phases with plugin goals
+    -------------------------------------------------
+custom/ tasks  = plugins
+pre-defined
+
+GRADLE has flexibility and power of ANT and conventions of maven in building a project
+------------------------------------------------------------------------------------------------------------------------
+How does GRADLE executes the tasks?
+	or
+How does GRADLE determines what tasks has to be executed in which order?
+The basic building block in building an project in GRADLE is Task, these tasks are pre-defined aspart of an plugin, in addition the programmer can write his own tasks either by deriving from pre-defined Tasks or from scratch
+
+
+The core model is based on Tasks in Gradle. programmer has to write/configure tasks aspart of gradle build file by declaring their dependencies between tasks
+Task in Gradle contains:
+- action: operation or piece of work todo
+- inputs: values, files and directories on whom the action should be performed
+- outputs: files and directories that the action has modified or generated
+
+all of these tasks has to be executed in a specific order inorder to build an project, Now Gradle in order to build project, it reads the task configuration and derives the dependencies between the tasks and draws an Directed Acyclic graph (DAG) to understand the tasks execution order and performs the build
+
+src/dest
+|
+copy
+-> copies a file or folder
+-> a new file is created on destination directory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

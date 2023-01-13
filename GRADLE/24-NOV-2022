@@ -1,0 +1,14 @@
+Gradle
+------
+Gradle is an opensource build automation tool, it can be used for building application developed based on jvm languages like java, groovy, scala and andriod platform
+
+In Gradle we express 
+
+
+ANT
+-build.xml
+instructions interms of executing tasks to perform the build
+drawbacks:-
+	1. across all the projects the build steps or build activities to be applied in building the project is same, even then also we need to redudantly write the build instruction file for every project due to which we need to spend lot of time in writing build instructions
+	2. different projects has different build instruction file, since the project structure would be different from project to project
+

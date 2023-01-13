@@ -1,0 +1,111 @@
+Gradle is an opensource build automaton tool, it can be used for building any application developed based on jvm langauges like java, groovy, scala and andriod platform
+
+
+ANT
+ANT has provided pre-defined set of tasks through which we can perform build activities, the developer has to write build instruction file in building the project using those tasks
+drawbacks:-
+	1. developer has to write redundantly the build script file in building the project
+	2. as different projects has different build script in building the project, it would be complex to understand how does the build is carried for each project
+	3. time consuming
+	
+MAVEN
+MAVEN has provided conventions and plugins, the plugins are the building blocks which performs the build activities in MAVEN. MAVEN has pre-defined lifecycles phases associated with plugin goals which are applied in building an project
+Features:
+1. dependency management
+2. build abstraction through lifecycle
+3. archetypes
+4. plugins
+5. tools support
+
+drawbacks:-
+	1. strictly convention over configuration, we need to create the project based on standardized directory structure only unless otherwise we cannot build the project using maven
+	2. we cannot customize the build steps or build activities easily while working with maven, There are predefined lifecycle phases defined with fixed plugin goals associated. if we want to perform additional build activity we need to write our own plugins and associate with phases of the lifecycle to execute, which is quite complex to achieve
+	
+	
+From the above we can under both ANT and MAVEN has their own drawbacks, to overcome the above problems with both of these build tools, GRADLE has been introduced.
+		
+In Gradle we express the build script or build definition file in Groovy or kotlin language in which we declare project information, tasks and plugins
+
+How does the Gradle works?
+--------------------------
+Gradle works based on Tasks and Plugins
+In Maven it assumes the project is of java type (packaging: jar) and applies the standard build lifecycle and performs the build activities based on standard convention
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

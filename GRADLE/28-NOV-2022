@@ -1,0 +1,82 @@
+How many extensibility options are there in Gradle?
+There are 2 ways we can customize the activities we want to apply in building a project
+1. create or extend an existing plugin in customizing the build step activities in building the project
+2. we can create our own task or extend from existing task and hookup into the gradle build in building the project
+------------------------------------------------------------------------------------------------------------------------
+Gradle Lifecycle
+Maven has abstracted the build process for a project through lifecycle. Maven lifecycle has predefined/fixed phases associated with goals of the plugin based on which the projects are build
+------------------------------------------------------------------------------------------------------------------------
+Log4J
+What is logging framework, what is the purpose of logging?
+There are several uses of logging technology
+#1
+during the development the developer upon writing the code, he has to debug the code in identifying which lines of code he has written went wrong and computing the wrong results, this can be done in multiple ways
+	1.1 debugging the application
+	run the application in debug mode and add break-points in the application to step through the lines of code in identifying which lines of code is not working. but this approach has several drawbacks
+	drawbacks:-
+		1. running the application in debugging mode consumes more system resources like cpu and ram and often becomes slow in responding and crashes frequently which makes infeasible for debugging
+		2. debugging often results in taking more time in identifying the problem, because developer has to step-through the code line by line to troubleshoot the failure
+		3. the code and the runtime should be on the same machine, if not we need to do remote debugging which is very slow
+		4. for other than development env, we cannot run the application on debug mode and place break-points in debugging the application
+		5. for multi-threaded, concurrency and streaming api based applications debugging is merely not possible
+#2 
+alternate to debugging, we can add interim output lines within the code in emitting the output and regular checkpoints wihtin the code and verify the output that has been produced at that checkpoint is correct or not, through which we can evaluate and identifying the problematic code
+
+this is the simplest solution that can be employed in quickly troubleshooting the code, but placing the sysouts within the code has their own problems
+	problems:
+	2.1 results in poor performance of the code since i/o takes huge time
+	2.2 in development we need more sysout statements, but while moving the application to later stages we need to reduce the number of output statements in printing interim outputs which cannot be taken away from the code easily
+	2.3 the sysouts that are produced are temporary and will vanish which doesnt help us in debugging the application in production env
+	2.4 not all the envs has console outputs to print the sysouts
+	
+To overcome the above problems in tracking and debugging the application easily the logging frameworks are introduced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
